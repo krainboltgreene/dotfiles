@@ -4,8 +4,8 @@ cp zsh/.zshrc ~/.zshrc
 echo "Setting up gpg..."
 mkdir -p /tmp/gpg/
 echo $GPG_PASSPHRASE > /tmp/gpg/passphrase
-echo $GPG_ARMOR_PAIR > /tmp/gpg/personal.armor
-gpg --passphrase-file /tmp/gpg/passphrase --import /tmp/gpg/personal.armor
+echo "$GPG_PRIVATE" > /tmp/gpg/personal.pgp
+gpg --passphrase-file /tmp/gpg/passphrase --import /tmp/gpg/personal.pgp
 echo "Setting up ssh..."
 mkdir -p ~/.ssh/
 cp ssh/config ~/.ssh/config
