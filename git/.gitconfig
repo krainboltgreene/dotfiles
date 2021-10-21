@@ -1,0 +1,55 @@
+[init]
+  defaultBranch = main
+[user]
+	email = kurtis@rainbolt-greene.online
+	name = Kurtis Rainbolt-Greene
+	signingkey = 69E48F49BB6990F7
+[gpg]
+	program = gpg
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[push]
+	default = current
+	followtags = true
+[status]
+	showUntrackedFiles = all
+[alias]
+	grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
+	logs = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[core]
+	excludesfile = ~/.gitignore
+	pager = diff-so-fancy | less --tabs=2 -RFX
+[color]
+	ui = true
+[fetch]
+	prune = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 227
+	frag = magenta bold
+	commit = 227 bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[apply]
+	whitespace = warn
+[sendmail]
+	smtpServer = smtp.gmail.com
+	smtpUser = kurtisrainboltgreene@gmail.com
+	smtpEncryption = tls
+	smtpServerPort = 587
+[pull]
+	rebase = false
+[github]
+	user = krainboltgreene
+[commit]
+  template = ~/.gitmessage
+[rebase]
+  autosquash = true
