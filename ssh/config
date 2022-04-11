@@ -1,6 +1,5 @@
 Host *
  AddKeysToAgent yes
  ForwardAgent yes
- UseKeychain yes
  IdentityFile ~/.ssh/personal
  ServerAliveInterval 120
