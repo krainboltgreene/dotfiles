@@ -93,7 +93,7 @@ export LANG=en_US.UTF-8
 # export ARCHFLAGS="-arch x86_64"
 
 # SSH
-export SSH_KEY_PATH="~/.ssh/personal_rsa"
+export SSH_KEY_PATH="~/.ssh/personal"
 
 # Set the default editor for CLI related tasks
 export EDITOR="code --wait"
@@ -118,3 +118,16 @@ stty sane
 
 # The next line enables shell command completion for gcloud.
 # if [ -f '~/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '~/bin/google-cloud-sdk/completion.zsh.inc'; fi
+secure() {
+  echo "Setting up gpg..."
+  mkdir -p /tmp/gpg/
+  echo "Paste your Personal GPG (Combination) (ctrl+d twice when done)"
+  gpg --yes --import
+  echo "Setting up ssh..."
+  gpg --yes --output ~/.ssh/personal --decrypt ssh/personal.enc
+  chmod 600 ~/.ssh/personal
+  eval `ssh-agent -s`
+  echo "Attempting to use the given ssh password"
+  ssh-add ~/.ssh/personal
+  echo "Done!"
+}

@@ -21,7 +21,7 @@
 	logs = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [core]
 	excludesfile = ~/.gitignore
-	pager = diff-so-fancy | less --tabs=2 -RFX
+	# pager = diff-so-fancy | less --tabs=2 -RFX
 [color]
 	ui = true
 [fetch]
