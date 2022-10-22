@@ -25,6 +25,7 @@
   - oh my zsh might need autoload, issue in ruby step.
   - turn off spotlight usage
   - set cerebros usage
+  - GPG still says me@kurtisrainboltgreene.name
 
 ## FAQ
 
