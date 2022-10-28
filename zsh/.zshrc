@@ -118,16 +118,23 @@ stty sane
 
 # The next line enables shell command completion for gcloud.
 # if [ -f '~/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '~/bin/google-cloud-sdk/completion.zsh.inc'; fi
+
+if [ -f '~/.fly' ]; then
+  export FLYCTL_INSTALL="~/.fly"
+  export PATH="$FLYCTL_INSTALL/bin:$PATH"
+fi;
+
 secure() {
   echo "Setting up gpg..."
   mkdir -p /tmp/gpg/
   echo "Paste your Personal GPG (Combination) (ctrl+d twice when done)"
   gpg --yes --import
   echo "Setting up ssh..."
-  gpg --yes --output ~/.ssh/personal --decrypt ssh/personal.enc
+  gpg --yes --output ~/.ssh/personal --decrypt /workspaces/.codespaces/.persistedshare/dotfiles/ssh/personal.enc
   chmod 600 ~/.ssh/personal
   eval `ssh-agent -s`
   echo "Attempting to use the given ssh password"
   ssh-add ~/.ssh/personal
+  rm /tmp/gpg/
   echo "Done!"
 }
