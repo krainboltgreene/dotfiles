@@ -119,7 +119,7 @@ stty sane
 # The next line enables shell command completion for gcloud.
 # if [ -f '~/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '~/bin/google-cloud-sdk/completion.zsh.inc'; fi
 
-if [ -f '~/.fly' ]; then
+if [ -f '~/.fly/bin/flyctl' ]; then
   export FLYCTL_INSTALL="~/.fly"
   export PATH="$FLYCTL_INSTALL/bin:$PATH"
 fi;
