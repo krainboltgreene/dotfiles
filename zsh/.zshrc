@@ -125,7 +125,7 @@ stty sane
 
 # The next line enables shell command completion for gcloud.
 # if [ -f '~/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '~/bin/google-cloud-sdk/completion.zsh.inc'; fi
-
+export GPG_TTY=$(tty)
 
 secure() {
   echo "Setting up gpg..."
