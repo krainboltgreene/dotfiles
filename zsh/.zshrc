@@ -1,5 +1,12 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+if [ -f '~/.fly/bin/flyctl' ]; then
+  export FLYCTL_INSTALL="~/.fly"
+  export PATH="$FLYCTL_INSTALL/bin:$PATH"
+fi;
+if [ -f '/usr/bin/elixir/bin/iex' ]; then
+  export PATH="/usr/bin/elixir/bin:$PATH"
+fi;
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -119,10 +126,6 @@ stty sane
 # The next line enables shell command completion for gcloud.
 # if [ -f '~/bin/google-cloud-sdk/completion.zsh.inc' ]; then . '~/bin/google-cloud-sdk/completion.zsh.inc'; fi
 
-if [ -f '~/.fly/bin/flyctl' ]; then
-  export FLYCTL_INSTALL="~/.fly"
-  export PATH="$FLYCTL_INSTALL/bin:$PATH"
-fi;
 
 secure() {
   echo "Setting up gpg..."
