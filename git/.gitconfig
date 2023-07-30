@@ -3,9 +3,9 @@
 [user]
 	email = kurtis@rainbolt-greene.online
 	name = Kurtis Rainbolt-Greene
-	signingkey = 69E48F49BB6990F7
-[gpg]
-	program = gpg
+# 	signingkey = 69E48F49BB6990F7
+# [gpg]
+# 	program = gpg
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
